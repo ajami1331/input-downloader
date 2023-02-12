@@ -26,9 +26,15 @@ fn process(request: &str) {
     let task: Task = serde_json::from_slice(request.as_bytes()).unwrap();
     let mut input_str : Vec<String> = Vec::new();
     let mut output_str : Vec<String> = Vec::new();
+    fs::create_dir_all("./test_cases").unwrap();
+    fs::write("./test_cases/cnt", task.tests.len().to_string()).unwrap();
+    let mut test_case_no = 0;
     for test in task.tests {
-        input_str.push(test.input);
-        output_str.push(test.output);
+        input_str.push(test.input.clone());
+        output_str.push(test.output.clone());
+        test_case_no += 1;
+        fs::write(format!("./test_cases/{}.in", test_case_no), test.input.clone()).unwrap();
+        fs::write(format!("./test_cases/{}.val", test_case_no), test.output.clone()).unwrap();
     }
     fs::write("./input.txt", input_str.join("")).unwrap();
     fs::write("./valid.txt", output_str.join("")).unwrap();
