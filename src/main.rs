@@ -1,3 +1,7 @@
+mod listener;
+mod task;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}: {}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"));
+    listener::listen();
 }
