@@ -1,1 +1,1 @@
-Download input output cwd using competitive-companion
+Download input output to cwd using competitive-companion.
