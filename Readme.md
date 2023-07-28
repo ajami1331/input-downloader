@@ -2,7 +2,7 @@ Download input output to cwd using competitive-companion.
 
 Install using:
 ```
-cargo install --git https://github.com/CLown1331/input-downloader.git
+cargo install --git https://github.com/ajami1331/input-downloader.git
 ```
 Use:
 ```
